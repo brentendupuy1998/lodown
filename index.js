@@ -212,6 +212,8 @@ function map(collection, func) {
  * contains: Returns true if the array contains value
  * Returns false otherwise
  * Ternary operator is being used
+ * @param Array
+ * @param Value
  */ 
 
 function contains(array, value) {
@@ -224,6 +226,8 @@ function contains(array, value) {
  * If one of them is false, return false
  * If function is not provided return true, if every element is truthy
  * return false
+ * @param Collection
+ * @param Function
  */
 
     function every(collection, func) {
@@ -236,6 +240,72 @@ function contains(array, value) {
         }
 }).length === 0;
 }
+
+/**
+ * some: If collection is an array or an object, returns value of calling
+ * the function is true for at least one element
+ * If it is false for all other elements return false
+ * If the function is not provided return true, if at least one element is
+ * truthy, otherwise return false
+ * @param Collection
+ * @param Function
+ */
+
+ function some(collection, func) {
+    return filter(collection, function(value, index, group) {
+        if (!func) {
+            return !!value;
+        } else {
+            return func(value, index, collection);
+        }
+    }).length > 0;
+}
+
+/**
+ * reduce: Calls the function for every element passing the arguements
+ * previousResult, element, index
+ * Uses the return value of function as the previous result
+ * On the first iteration, uses seed as previous result
+ * If no seed was given, use the first element or value of the collection
+ * Return the value of final function call
+ * @param Array
+ * @param Function
+ * @param Seed
+ */
+
+ function reduce (array, func, seed) {
+    var arrayToIterate = array;
+    var previousResult;
+    var indexModifier = 0;
+    if (seed !== null && seed !== undefined) {
+        previousResult = seed;
+    } else {
+        previousResult = array[0];
+        arrayToIterate = array.slice(1, array.length);
+        indexModifier = 1;
+    }
+    each(arrayToIterate, function(value, index, collection) {
+        previousResult = func(previousResult, value, index + indexModifier);
+    });
+    return previousResult;
+    
+}
+
+/**
+ * extend: Copy object from Object two to object one
+ * If more objects are passed in, copy their properties to object one as well
+ * In the other they are passed in
+ * Return the update object one
+ */
+
+ function extend(objectOne, objectTwo) {
+    var args = Array.prototype.slice.call(arguments);
+    return reduce(args, function(previousSum, currentValue, currentIndex) {
+        return Object.assign(previousSum, currentValue);
+    });
+}
+
+
 
 
 module.exports.identity = identity;
@@ -252,4 +322,7 @@ module.exports.map = map;
 module.exports.pluck = pluck;
 module.exports.contains = contains;
 module.exports.every = every;
+module.exports.some = some;
+module.exports.reduce = reduce;
+module.exports.extend = extend;
 
