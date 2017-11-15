@@ -148,6 +148,18 @@ function filter (array, func) {
     return newArray;
 }
 
+/**
+ * parition: Calling the function passes the arguments through it
+ * Returns an array made up of 2 sub arrays,
+ * One array that contains the values for the function that returned truthy
+ * One array that contains the values for the function that returned falsey
+ * @param: Array
+ * @param: Function
+*/
+ 
+ function partition(array, func) {
+return [filter(array, func), reject(array, func)];
+}
 
 module.exports.identity = identity;
 module.exports.typeOf = typeOf;
@@ -157,3 +169,4 @@ module.exports.each = each;
 module.exports.indexOf = indexOf;
 module.exports.filter = filter;
 module.exports.reject = reject;
+module.exports.partition = partition;
