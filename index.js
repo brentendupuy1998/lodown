@@ -161,6 +161,40 @@ function filter (array, func) {
 return [filter(array, func), reject(array, func)];
 }
 
+/**
+ * 
+ */
+ 
+ 
+function unique(array) {
+    var newArray = [];
+    each(array, function(value, i, collection) {
+        if (indexOf(newArray, value) === -1) {
+            newArray.push(value);
+        }
+});
+    return newArray;
+}
+
+/**
+ * map: When calling the function passing the arguments, save and return
+ * value of each function call in a new array
+ * Then return the new array
+ * @param Collection
+ * @param Function
+ */
+
+
+function map(collection, func) {
+    var newArray = [];
+    each(collection, function(value, i, collections) {
+        newArray.push(func(value, i, collections));
+    });
+    return newArray;
+}
+
+
+
 module.exports.identity = identity;
 module.exports.typeOf = typeOf;
 module.exports.first = first;
@@ -170,3 +204,6 @@ module.exports.indexOf = indexOf;
 module.exports.filter = filter;
 module.exports.reject = reject;
 module.exports.partition = partition;
+module.exports.unique = unique;
+module.exports.map = map;
+
