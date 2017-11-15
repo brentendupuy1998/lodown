@@ -5,7 +5,7 @@
 /**
  * identity: Designed to return anything that is passed through
  * unchanged
- * @parm Anything is the paramater, anything can be put into it.
+ * @param Anything is the paramater, anything can be put into it.
 */
 
 function identity(anything) {
@@ -14,7 +14,7 @@ function identity(anything) {
 
 /**
  * typeOf: Returns the specific type as a string
- * @parm Anything: Can be passed with anything
+ * @param Anything: Can be passed with anything
  */
 
 function typeOf(anything) {
@@ -48,27 +48,6 @@ function first(array, number) {
     }
 }
 
-
-/**
- * each: Designed to loop over a collection, Array or Object, and applies the 
- * action Function to each value in the collection.
- * 
- * @param {Array or Object} collection: The collection over which to iterate.
- * @param {Function} action: The Function to be applied to each value in the 
- * collection
- */
-function each(collection, action) {
-    if(Array.isArray(collection)) {
-        for(var i = 0; i < collection.length; i++) {
-            action(collection[i], i, collection);
-        }
-    } else {
-        for (var key in collection) {
-            action(collection[key], key, collection);
-        }
-    }
-}
-
 /**
  * last: If the array is not an array, it returns an empty array [],
  * if the number is not a given number, 
@@ -90,8 +69,49 @@ function last(array, number) {
     }
 }
 
+/**
+ * each: Designed to loop over a collection, Array or Object, and applies the 
+ * action Function to each value in the collection.
+ * 
+ * @param {Array or Object} collection: The collection over which to iterate.
+ * @param {Function} action: The Function to be applied to each value in the 
+ * collection
+ */
+ 
+function each(collection, action) {
+    if(Array.isArray(collection)) {
+        for(var i = 0; i < collection.length; i++) {
+            action(collection[i], i, collection);
+        }
+    } else {
+        for (var key in collection) {
+            action(collection[key], key, collection);
+        }
+    }
+}
+
+/**
+ * indexOf: Uses a loop and goes through and returns the index of the array 
+ * with the first occurance of value, returns -1 if the value is
+ * not an array
+ * @param: Array
+ * @param: Value
+ */
+
+
+function indexOf(array, value) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+            return i;
+        }
+    } return -1;
+}
+
+
+
 module.exports.identity = identity;
 module.exports.typeOf = typeOf;
 module.exports.first = first;
 module.exports.last = last;
 module.exports.each = each;
+module.exports.indexOf = indexOf;
