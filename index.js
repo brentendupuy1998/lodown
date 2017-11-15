@@ -108,6 +108,26 @@ function indexOf(array, value) {
 }
 
 
+/**
+ * filter: When called with the passing arguments the element, it's index,
+ * array
+ * Returns a new array of elements for which is returned true
+ * We used the each function to loop over the array.
+ * @params: Array
+ * @params: Function
+ */
+
+function filter (array, func) {
+    var newArray = [];
+    each(array, function (value, index, collection) {
+        if (func(value, index, collection)) {
+            newArray.push(value);
+        }
+    });
+    return newArray;
+}
+
+
 
 module.exports.identity = identity;
 module.exports.typeOf = typeOf;
@@ -115,3 +135,5 @@ module.exports.first = first;
 module.exports.last = last;
 module.exports.each = each;
 module.exports.indexOf = indexOf;
+module.exports.filter = filter;
+
