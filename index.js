@@ -127,6 +127,26 @@ function filter (array, func) {
     return newArray;
 }
 
+/**
+ * reject: When called, passes the arguments: the element, it's index, 
+ * and array
+ * Returns new array of elements for which the function returned false
+ * 
+ * Uses the each function to loop over the array pushing the value
+ * into a new array
+ * @param: Array
+ * @param: Function
+ */
+ 
+ function reject(array, func) {
+        var newArray = [];
+    each(array, function (value, index, collection) {
+        if (!func(value, index, collection)) {
+            newArray.push(value);
+        }
+    });
+    return newArray;
+}
 
 
 module.exports.identity = identity;
@@ -136,4 +156,4 @@ module.exports.last = last;
 module.exports.each = each;
 module.exports.indexOf = indexOf;
 module.exports.filter = filter;
-
+module.exports.reject = reject;
