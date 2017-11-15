@@ -5,7 +5,7 @@
 /**
  * identity: Designed to return anything that is passed through
  * unchanged
- * @parm Anything: Can be anything that is put into it
+ * @parm Anything is the paramater, anything can be put into it.
 */
 
 function identity(anything) {
@@ -68,7 +68,30 @@ function each(collection, action) {
         }
     }
 }
+
+/**
+ * last: If the array is not an array, it returns an empty array [],
+ * if the number is not a given number, 
+ * it will return the last element within the array
+ * Otherwise, it will return the last number of items within the array
+ * 
+ * @param Array
+ * @param Number
+*/
+
+function last(array, number) {
+    if (!Array.isArray(array) || number < 0) {
+        return [];
+    }
+    if (typeof number !==  'number' || !number) {
+        return array[array.length-1];
+    } else {
+      return array.slice(-number);
+    }
+}
+
 module.exports.identity = identity;
 module.exports.typeOf = typeOf;
 module.exports.first = first;
+module.exports.last = last;
 module.exports.each = each;
