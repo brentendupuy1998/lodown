@@ -194,6 +194,30 @@ function map(collection, func) {
 }
 
 
+/**
+ * pluck: Returns an array containing the value of property for every
+ * element in array
+ * Uses the map function
+ * @param Array
+ * @param Property
+ */
+ 
+ function pluck(array, property) {
+    return map(array, function(value, i, array) {
+        return value[property];
+    });
+}
+
+/**
+ * contains: Returns true if the array contains value
+ * Returns false otherwise
+ * Ternary operator is being used
+ */ 
+
+function contains(array, value) {
+    return (indexOf(array, value) > -1 ? true : false);
+}
+
 
 module.exports.identity = identity;
 module.exports.typeOf = typeOf;
@@ -206,4 +230,6 @@ module.exports.reject = reject;
 module.exports.partition = partition;
 module.exports.unique = unique;
 module.exports.map = map;
+module.exports.pluck = pluck;
+module.exports.contains = contains;
 
