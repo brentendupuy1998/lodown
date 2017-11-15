@@ -218,6 +218,25 @@ function contains(array, value) {
     return (indexOf(array, value) > -1 ? true : false);
 }
 
+/**
+ * every: Has parameters of if the collection is an array, or an object,
+ * For every elements that true, returns true
+ * If one of them is false, return false
+ * If function is not provided return true, if every element is truthy
+ * return false
+ */
+
+    function every(collection, func) {
+    return reject(collection, function(value, index, collection) {
+        if (!func) {
+            return !!value;
+        }
+        else {
+            return func(value, index, collection);
+        }
+}).length === 0;
+}
+
 
 module.exports.identity = identity;
 module.exports.typeOf = typeOf;
@@ -232,4 +251,5 @@ module.exports.unique = unique;
 module.exports.map = map;
 module.exports.pluck = pluck;
 module.exports.contains = contains;
+module.exports.every = every;
 
