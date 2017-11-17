@@ -268,6 +268,7 @@ function contains(array, value) {
  * If seed is not given it, it becomes the first value of collection
  * func takes 4 parameters: seed, collection[i], i, collection
  * seed = the result of func
+ * Returns seed
  * @param Array
  * @param Function
  * @param Seed
