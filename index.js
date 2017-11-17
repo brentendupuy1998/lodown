@@ -262,12 +262,12 @@ function contains(array, value) {
 }
 
 /**
- * reduce: Calls the function for every element passing the arguements
- * previousResult, element, index
- * Uses the return value of function as the previous result
- * On the first iteration, uses seed as previous result
- * If no seed was given, use the first element or value of the collection
- * Return the value of final function call
+ * Reduce takes three params, collection, function, seed
+ * Loops over a collection
+ * Seed is optional
+ * If seed is not given it, it becomes the first value of collection
+ * func takes 4 parameters: seed, collection[i], i, collection
+ * seed = the result of func
  * @param Array
  * @param Function
  * @param Seed
