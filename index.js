@@ -195,7 +195,7 @@ function unique(array) {
  * Then return the new array
  * @param {array or object} collection, that needs to loop over
  * @param {function}
- * @return {array} with new unique elements
+ * @return {array} an array having each element from array parameter, then changed by function parmeter
  */
 
 
