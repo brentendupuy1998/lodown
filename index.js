@@ -59,7 +59,7 @@ function first(array, number) {
  * 
  * @param {array} to loop over, 
  * @param {number} of elements within the array
- * @return {array} that has the last parameter
+ * @return {array} an array with the last parameter from the array that was passed in
 */
 
 function last(array, number) {
