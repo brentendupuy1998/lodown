@@ -121,7 +121,7 @@ function indexOf(array, value) {
  * We used the each function to loop over the array.
  * @params: {array} that is being looped over
  * @params: {function} that is going to be used 
- * @return {array} with all the elements that is true from the parameter
+ * @return {array} with all the elements that is true from the parameter passed in
  */
 
 function filter (array, func) {
