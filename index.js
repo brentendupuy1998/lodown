@@ -162,7 +162,7 @@ function filter (array, func) {
  * One array that contains the values for the function that returned truthy
  * One array that contains the values for the function that returned falsey
  * @param: {array} to loop over
- * @param: {function} a testfunction to have on each element within the array
+ * @param: {function} a test function to have on each element within the array
  * @return {array} many arrays, the first has values of true, and the other has values of false
 */
  
