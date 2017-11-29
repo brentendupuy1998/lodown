@@ -214,7 +214,7 @@ function map(collection, func) {
  * Uses the map function
  * @param {array of objects} loop over
  * @param {string} the key to look in
- * @return {array} values within property of each object
+ * @return {array} values within property of each object in the array
  */
  
  function pluck(array, property) {
