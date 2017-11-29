@@ -37,7 +37,7 @@ function typeOf(anything) {
  * or return the first number of items of array
  * @param {array} that is being looped over
  * @param {number}
- * @return {array} with the first element from the params
+ * @return {array} an array with the first number of elements from the paramater
  */
  
 function first(array, number) {
