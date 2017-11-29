@@ -143,7 +143,7 @@ function filter (array, func) {
  * into a new array
  * @param: {array} being looped over
  * @param: {function} that is going to be called for true or false
- * @return {array} with all the elements in the array that is false
+ * @return {array} with all the elements in the array that is false from the paramater passed in
  */
  
  function reject(array, func) {
