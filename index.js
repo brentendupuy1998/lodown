@@ -5,7 +5,8 @@
 /**
  * identity: Designed to return anything that is passed through
  * unchanged
- * @param Anything is the paramater, anything can be put into it.
+ * @param {anything} Anything is the paramater, anything can be put into it.
+ * @return: what was passed in the parameter
 */
 
 function identity(anything) {
@@ -14,7 +15,8 @@ function identity(anything) {
 
 /**
  * typeOf: Returns the specific type as a string
- * @param Anything: Can be passed with anything
+ * @param {anything} Can be passed with anything
+ * @return a string with the type of argument from the parameter
  */
 
 function typeOf(anything) {
@@ -33,8 +35,9 @@ function typeOf(anything) {
  * first: If the array is not an array it will returh [];
  * if there is not a number return the first element in array
  * or return the first number of items of array
- * @param Array
- * @param Number
+ * @param {array} that is being looped over
+ * @param {number}
+ * @return {array} with the first element from the params
  */
  
 function first(array, number) {
@@ -54,8 +57,9 @@ function first(array, number) {
  * it will return the last element within the array
  * Otherwise, it will return the last number of items within the array
  * 
- * @param Array
- * @param Number
+ * @param {array} to loop over, 
+ * @param {number} of elements within the array
+ * @return {array} that has the last parameter
 */
 
 function last(array, number) {
@@ -73,9 +77,10 @@ function last(array, number) {
  * each: Designed to loop over a collection, Array or Object, and applies the 
  * action Function to each value in the collection.
  * 
- * @param {Array or Object} collection: The collection over which to iterate.
- * @param {Function} action: The Function to be applied to each value in the 
+ * @param {array or object} collection: The collection over which to iterate.
+ * @param {function} action: The Function to be applied to each value in the 
  * collection
+ * @return nothing
  */
  
 function each(collection, action) {
@@ -94,8 +99,9 @@ function each(collection, action) {
  * indexOf: Uses a loop and goes through and returns the index of the array 
  * with the first occurance of value, returns -1 if the value is
  * not an array
- * @param: Array
- * @param: Value
+ * @param: {array} being looped over
+ * @param: {value} any value for it to compare each element
+ * @return: {number} first number index in the array that matches value
  */
 
 
@@ -113,8 +119,9 @@ function indexOf(array, value) {
  * array
  * Returns a new array of elements for which is returned true
  * We used the each function to loop over the array.
- * @params: Array
- * @params: Function
+ * @params: {array} that is being looped over
+ * @params: {function} that is going to be used 
+ * @return {array} with all the elements that is true from the parameter
  */
 
 function filter (array, func) {
@@ -134,8 +141,9 @@ function filter (array, func) {
  * 
  * Uses the each function to loop over the array pushing the value
  * into a new array
- * @param: Array
- * @param: Function
+ * @param: {array} being looped over
+ * @param: {function} that is going to be called for true or false
+ * @return {array} with all the elements in the array that is false
  */
  
  function reject(array, func) {
@@ -153,17 +161,22 @@ function filter (array, func) {
  * Returns an array made up of 2 sub arrays,
  * One array that contains the values for the function that returned truthy
  * One array that contains the values for the function that returned falsey
- * @param: Array
- * @param: Function
+ * @param: {array} to loop over
+ * @param: {function} a testfunction to have on each element within the array
+ * @return {array} many arrays, the first has values of true, and the other has values of false
 */
  
  function partition(array, func) {
 return [filter(array, func), reject(array, func)];
 }
 
-/**
+/**unique: When called, unique uses each and indexOf to loop over the array
+ * pushes the new value into a newArray, then returns it
  * 
+ * @param: {array}, which is the array we have to loop over
+ * @return {array} that has every element within array
  */
+ 
  
  
 function unique(array) {
@@ -177,11 +190,12 @@ function unique(array) {
 }
 
 /**
- * map: When calling the function passing the arguments, save and return
- * value of each function call in a new array
+ * map: When calling the function, map loops over the collection and then pushes
+ * into the newArray, then returns the new array
  * Then return the new array
- * @param Collection
- * @param Function
+ * @param {array or object} collection, that needs to loop over
+ * @param {function}
+ * @return {array} with new unique elements
  */
 
 
@@ -198,8 +212,9 @@ function map(collection, func) {
  * pluck: Returns an array containing the value of property for every
  * element in array
  * Uses the map function
- * @param Array
- * @param Property
+ * @param {array of objects} loop over
+ * @param {string} the key to look in
+ * @return {array} values within proberty of each object
  */
  
  function pluck(array, property) {
@@ -212,8 +227,9 @@ function map(collection, func) {
  * contains: Returns true if the array contains value
  * Returns false otherwise
  * Ternary operator is being used
- * @param Array
- * @param Value
+ * @param {array} to iterate over
+ * @param {value} checking within the array
+ * @return {boolean} true if the value found in array, otherwise returns false
  */ 
 
 function contains(array, value) {
@@ -226,8 +242,9 @@ function contains(array, value) {
  * If one of them is false, return false
  * If function is not provided return true, if every element is truthy
  * return false
- * @param Collection
- * @param Function
+ * @param {array or object} collection, to loop over
+ * @param {function}
+ * @return {boolean} if true, else returns false
  */
 
     function every(collection, func) {
@@ -247,8 +264,9 @@ function contains(array, value) {
  * If it is false for all other elements return false
  * If the function is not provided return true, if at least one element is
  * truthy, otherwise return false
- * @param Collection
- * @param Function
+ * @param {array or object} collection to loop thorough
+ * @param {function}
+ * @return {boolean} true if true, else returns false
  */
 
  function some(collection, func) {
@@ -269,9 +287,10 @@ function contains(array, value) {
  * func takes 4 parameters: seed, collection[i], i, collection
  * seed = the result of func
  * Returns seed
- * @param Array
- * @param Function
- * @param Seed
+ * @param {array} to loop over
+ * @param {function}
+ * @param Seed that has a starting point for reduce
+ * @return from the final call
  */
 
  function reduce (array, func, seed) {
@@ -297,7 +316,10 @@ function contains(array, value) {
  * If more objects are passed in, copy their properties to object one as well
  * In the other they are passed in
  * Return the update object one
+ @param {object} takes different numbers of objects, returns undefined if there are no arguements
+ @return {object} object with key values
  */
+ 
 
  function extend(objectOne, objectTwo) {
     var args = Array.prototype.slice.call(arguments);
