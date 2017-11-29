@@ -309,6 +309,15 @@ function contains(array, value) {
     });
     return previousResult;
     
+    
+// var reduce = (collection, cb, acc) => {
+//   each(collection, (v, k, c) =>
+//     (acc = acc === undefined ? v : cb (acc, v, k, c))
+//     );
+//     return acc;
+// };
+    
+    
 }
 
 /**
